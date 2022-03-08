@@ -5,8 +5,8 @@
     {{ nome }}{{ nomeSelecionados.length > 1 ? ", " : "" }}
   </span>
 
-  <div>
-    <div>
+  <div class="lista">
+    <div v-for="item in listaPessoas" :key="item.id">
       <Usuario
         @selecionado="setUsuarioSelecionado($event)"
         @removeSelecionado="removeUsuarioSelecionado($event)"
