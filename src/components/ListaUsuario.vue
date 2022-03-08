@@ -18,7 +18,7 @@
 
 <script>
   import Usuario from "@/components/Usuario.vue";
-  import { computed, ref } from "vue";
+  import { computed, ref, onMounted } from "vue";
   import { useStore } from "vuex";
   import { pessoas } from "../store/mutations-types.js";
 
@@ -44,6 +44,10 @@
       function removeUsuarioSelecionado(idUsuario) {
         store.commit(REMOVER_FAVORITO, idUsuario);
       }
+
+      onMounted(() => {
+        store.dispatch("adicionaPessoas", "users?page=2");
+      });
 
       return {
         listaPessoas,
