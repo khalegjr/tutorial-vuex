@@ -50,7 +50,11 @@ const store = createStore({
       },
     ],
   },
-  getters: {},
+  getters: {
+    totalFavoritos(state) {
+      return state.listaFavoritos.length;
+    },
+  },
   mutations: {},
   actions: {},
 });
