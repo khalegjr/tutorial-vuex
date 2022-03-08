@@ -18,20 +18,20 @@
 <script>
   import { computed, onMounted } from "vue";
   import { useStore } from "vuex";
+  import { pessoas } from "../store/mutations-types";
 
   export default {
     components: {},
 
     setup() {
+      const { REMOVER_FAVORITO } = pessoas;
       const store = useStore();
       const listaFavoritos = computed(() => store.state.listaFavoritos);
 
       onMounted(() => {});
 
       function removeFavorito(idUsuario) {
-        listaFavoritos.value = listaFavoritos.value.filter(
-          (x) => x.id !== idUsuario
-        );
+        store.commit(REMOVER_FAVORITO, idUsuario);
       }
 
       return {

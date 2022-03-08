@@ -33,22 +33,7 @@ const store = createStore({
       },
     ],
 
-    listaFavoritos: [
-      {
-        id: 7,
-        email: "michael.lawson@reqres.in",
-        first_name: "Michael",
-        last_name: "Lawson",
-        avatar: "https://reqres.in/img/faces/7-image.jpg",
-      },
-      {
-        id: 8,
-        email: "lindsay.ferguson@reqres.in",
-        first_name: "Lindsay",
-        last_name: "Ferguson",
-        avatar: "https://reqres.in/img/faces/8-image.jpg",
-      },
-    ],
+    listaFavoritos: [],
   },
   getters: {
     totalFavoritos(state) {
@@ -59,7 +44,20 @@ const store = createStore({
       return state.listaFavoritos.some((x) => x.id === id);
     },
   },
-  mutations: {},
+  mutations: {
+    ADD_FAVORITO(state, payload) {
+      const usuarioSelecionado = state.listaPessoas.find(
+        (x) => x.id === payload
+      );
+      state.listaFavoritos = [...state.listaFavoritos, usuarioSelecionado];
+    },
+
+    REMOVER_FAVORITO(state, payload) {
+      state.listaFavoritos = state.listaFavoritos.filter(
+        (x) => x.id !== payload
+      );
+    },
+  },
   actions: {},
 });
 
