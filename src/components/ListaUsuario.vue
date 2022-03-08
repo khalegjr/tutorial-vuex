@@ -7,7 +7,11 @@
 
   <div>
     <div>
-      <Usuario />
+      <Usuario
+        @selecionado="setUsuarioSelecionado($event)"
+        @removeSelecionado="removeUsuarioSelecionado($event)"
+        :usuario="item"
+      />
     </div>
   </div>
 </template>
