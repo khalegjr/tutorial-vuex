@@ -11,6 +11,7 @@
         @selecionado="setUsuarioSelecionado($event)"
         @removeSelecionado="removeUsuarioSelecionado($event)"
         :usuario="item"
+        :isFavorito="isFavorito(item.id)"
       />
     </div>
   </div>
@@ -51,6 +52,7 @@
         nomeSelecionados,
         setUsuarioSelecionado,
         removeUsuarioSelecionado,
+        isFavorito: store.isFavorito,
       };
     },
   };

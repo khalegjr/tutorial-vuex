@@ -5,7 +5,7 @@
     </div>
     <span>{{ usuario.first_name + " " + usuario.last_name }}</span>
     <a class="favorito" @click="mudarFavorito(usuario.id)">
-      <img v-if="favorito" src="@/assets/heart.svg" alt="favorito icone" />
+      <img v-if="isFavorito" src="@/assets/heart.svg" alt="favorito icone" />
       <img v-else src="@/assets/heart-outline.svg" alt="favorito icone" />
     </a>
   </div>
@@ -15,7 +15,7 @@
   import { ref } from "vue";
 
   export default {
-    props: ["usuario"],
+    props: ["usuario", "isFavorito"],
     emits: ["selecionado", "removeSelecionado"],
     setup(prop, { emit }) {
       const favorito = ref(false);
