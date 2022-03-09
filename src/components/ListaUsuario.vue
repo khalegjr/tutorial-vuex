@@ -21,6 +21,7 @@
   import Usuario from "@/components/Usuario.vue";
   import { computed, ref, onMounted } from "vue";
   import { usuarioStore } from "../store/usuario";
+  import { storeToRefs } from "pinia";
 
   export default {
     components: {
@@ -30,7 +31,7 @@
     setup() {
       const store = usuarioStore();
       const selecionados = ref([]);
-      const listaPessoas = ref([]);
+      const { listaPessoas, isFavorito } = storeToRefs(store);
 
       const nomeSelecionados = computed(() => {
         return selecionados.value.map((x) => `${x.first_name} ${x.last_name}`);
@@ -44,7 +45,7 @@
       return {
         listaPessoas,
         nomeSelecionados,
-        isFavorito: store.isFavorito,
+        isFavorito,
         adicionaFavorito: store.adicionaUsuario,
         removeFavorito: store.removeUsuario,
       };

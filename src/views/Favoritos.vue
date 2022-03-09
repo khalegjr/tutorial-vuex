@@ -16,15 +16,15 @@
 </template>
 
 <script>
-  import { computed } from "vue";
   import { usuarioStore } from "../store/usuario";
+  import { storeToRefs } from "pinia";
 
   export default {
     components: {},
 
     setup() {
       const store = usuarioStore();
-      const listaFavoritos = computed(() => store.listaFavoritos);
+      const { listaFavoritos } = storeToRefs(store);
 
       return {
         listaFavoritos,
