@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import { onMounted, ref } from "vue";
+  import { computed } from "vue";
   import { usuarioStore } from "../store/usuario";
 
   export default {
@@ -24,21 +24,11 @@
 
     setup() {
       const store = usuarioStore();
-      const listaFavoritos = ref([]);
-
-      onMounted(() => {
-        listaFavoritos.value = store.listaFavoritos;
-      });
-
-      function removeFavorito(idUsuario) {
-        listaFavoritos.value = listaFavoritos.value.filter(
-          (x) => x.id !== idUsuario
-        );
-      }
+      const listaFavoritos = computed(() => store.listaFavoritos);
 
       return {
         listaFavoritos,
-        removeFavorito,
+        removeFavorito: store.removeUsuario,
       };
     },
   };

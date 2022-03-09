@@ -8,8 +8,8 @@
   <div class="lista">
     <div v-for="item in listaPessoas" :key="item.id">
       <Usuario
-        @selecionado="setUsuarioSelecionado($event)"
-        @removeSelecionado="removeUsuarioSelecionado($event)"
+        @selecionado="adicionaFavorito($event)"
+        @removeSelecionado="removeFavorito($event)"
         :usuario="item"
         :isFavorito="isFavorito(item.id)"
       />
@@ -36,23 +36,12 @@
         return selecionados.value.map((x) => `${x.first_name} ${x.last_name}`);
       });
 
-      function setUsuarioSelecionado(idUsuario) {
-        const usuarioSelecionado = listaPessoas.find((x) => x.id == idUsuario);
-        selecionados.value = [...selecionados.value, usuarioSelecionado];
-      }
-
-      function removeUsuarioSelecionado(idUsuario) {
-        selecionados.value = selecionados.value.filter(
-          (x) => x.id !== idUsuario
-        );
-      }
-
       return {
         listaPessoas,
         nomeSelecionados,
-        setUsuarioSelecionado,
-        removeUsuarioSelecionado,
         isFavorito: store.isFavorito,
+        adicionaFavorito: store.adicionaUsuario,
+        removeFavorito: store.removeUsuario,
       };
     },
   };
