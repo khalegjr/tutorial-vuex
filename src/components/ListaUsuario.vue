@@ -29,7 +29,7 @@
     setup() {
       const store = useStore();
       const selecionados = ref([]);
-      const listaPessoas = computed(() => store.state.listaPessoas);
+      const listaPessoas = computed(() => store.state.usuario.listaPessoas);
 
       const nomeSelecionados = computed(() => {
         return selecionados.value.map((x) => `${x.first_name} ${x.last_name}`);

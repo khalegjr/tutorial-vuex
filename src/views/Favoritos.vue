@@ -24,7 +24,7 @@
 
     setup() {
       const store = useStore();
-      const listaFavoritos = computed(() => store.state.listaFavoritos);
+      const listaFavoritos = computed(() => store.state.usuario.listaFavoritos);
 
       onMounted(() => {});
 
