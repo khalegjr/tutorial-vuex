@@ -7,15 +7,25 @@
 
     <div class="favorito">
       <img src="@/assets/heart.svg" alt="favoritos" />
-      <span v-if="true">1</span>
+      <span v-if="true">{{ totalFavoritos }}</span>
     </div>
   </nav>
 </template>
 
 <script>
+  import { computed } from "vue";
+  import { usuarioStore } from "../store/usuario";
+
   export default {
     name: "NavBar",
-    setup() {},
+    setup() {
+      const store = usuarioStore();
+      const totalFavoritos = computed(() => store.totalFavoritos);
+
+      return {
+        totalFavoritos,
+      };
+    },
   };
 </script>
 

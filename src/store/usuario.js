@@ -52,4 +52,8 @@ export const usuarioStore = defineStore("usuario", {
       ],
     };
   },
+
+  getters: {
+    totalFavoritos: (state) => state.listaFavoritos.length,
+  },
 });
