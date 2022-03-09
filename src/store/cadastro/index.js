@@ -8,3 +8,11 @@ export const usuarioStore = defineStore("usuario-cadastro", {
   getters,
   actions,
 });
+
+export const loginStore = defineStore("login", {
+  state: () => {
+    return {
+      nome: "Khaled",
+    };
+  },
+});

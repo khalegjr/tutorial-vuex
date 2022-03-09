@@ -24,7 +24,10 @@
 
     setup() {
       const store = usuarioStore();
+      const login = loginStore();
       const { listaFavoritos } = storeToRefs(store);
+
+      console.log(login.nome);
 
       return {
         listaFavoritos,
