@@ -20,7 +20,6 @@
   import Usuario from "@/components/Usuario.vue";
   import { computed, ref, onMounted } from "vue";
   import { useStore } from "vuex";
-  import { pessoas } from "../store/mutations-types.js";
 
   export default {
     components: {
@@ -28,7 +27,6 @@
     },
 
     setup() {
-      const { ADD_FAVORITO, REMOVER_FAVORITO } = pessoas;
       const store = useStore();
       const selecionados = ref([]);
       const listaPessoas = computed(() => store.state.listaPessoas);
@@ -38,11 +36,11 @@
       });
 
       function setUsuarioSelecionado(idUsuario) {
-        store.commit(ADD_FAVORITO, idUsuario);
+        store.dispatch("adicionaFavorito", idUsuario);
       }
 
       function removeUsuarioSelecionado(idUsuario) {
-        store.commit(REMOVER_FAVORITO, idUsuario);
+        store.dispatch("removeFavorito", idUsuario);
       }
 
       onMounted(() => {

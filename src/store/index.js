@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import { pessoas } from "./mutations-types";
 
-const { ADD_PESSOAS } = pessoas;
+const { ADD_PESSOAS, ADD_FAVORITO, REMOVER_FAVORITO } = pessoas;
 const store = createStore({
   state: {
     listaPessoas: [],
@@ -42,6 +42,12 @@ const store = createStore({
       commit(ADD_PESSOAS, data);
     },
 
+    adicionaFavorito({ commit }, payload) {
+      commit(ADD_FAVORITO, payload);
+    },
+
+    removeFavorito({ commit }, payload) {
+      commit(REMOVER_FAVORITO, payload);
     },
   },
 });
