@@ -19,7 +19,7 @@
 
 <script>
   import Usuario from "@/components/Usuario.vue";
-  import { computed, ref } from "vue";
+  import { computed, ref, onMounted } from "vue";
   import { usuarioStore } from "../store/usuario";
 
   export default {
@@ -30,10 +30,15 @@
     setup() {
       const store = usuarioStore();
       const selecionados = ref([]);
-      const listaPessoas = store.listaPessoas;
+      const listaPessoas = ref([]);
 
       const nomeSelecionados = computed(() => {
         return selecionados.value.map((x) => `${x.first_name} ${x.last_name}`);
+      });
+
+      onMounted(async () => {
+        await store.buscaUsuarios("users?page=2");
+        listaPessoas.value = store.listaPessoas;
       });
 
       return {

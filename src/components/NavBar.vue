@@ -7,7 +7,7 @@
 
     <div class="favorito">
       <img src="@/assets/heart.svg" alt="favoritos" />
-      <span v-if="true">{{ totalFavoritos }}</span>
+      <span v-if="totalFavoritos">{{ totalFavoritos }}</span>
     </div>
   </nav>
 </template>
