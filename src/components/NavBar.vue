@@ -14,7 +14,7 @@
 
 <script>
   import { computed } from "vue";
-  import { usuarioStore } from "../store/usuario";
+  import { usuarioStore } from "../store/cadastro";
 
   export default {
     name: "NavBar",

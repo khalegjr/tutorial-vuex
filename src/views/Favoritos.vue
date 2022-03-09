@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import { usuarioStore } from "../store/usuario";
+  import { usuarioStore, loginStore } from "../store/cadastro";
   import { storeToRefs } from "pinia";
 
   export default {

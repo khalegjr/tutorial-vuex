@@ -20,7 +20,7 @@
 <script>
   import Usuario from "@/components/Usuario.vue";
   import { computed, ref, onMounted } from "vue";
-  import { usuarioStore } from "../store/usuario";
+  import { usuarioStore } from "../store/cadastro";
   import { storeToRefs } from "pinia";
 
   export default {
