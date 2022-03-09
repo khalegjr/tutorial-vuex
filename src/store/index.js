@@ -38,8 +38,10 @@ const store = createStore({
   actions: {
     async adicionaPessoas({ commit }, payload) {
       const req = await fetch(`https://reqres.in/api/${payload}`);
-      const pessoas = await req.json();
-      commit(ADD_PESSOAS, pessoas);
+      const { data } = await req.json();
+      commit(ADD_PESSOAS, data);
+    },
+
     },
   },
 });
