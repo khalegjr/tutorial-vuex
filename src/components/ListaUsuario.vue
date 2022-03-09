@@ -36,15 +36,15 @@
       });
 
       function setUsuarioSelecionado(idUsuario) {
-        store.dispatch("adicionaFavorito", idUsuario);
+        store.dispatch("usuario/adicionaFavorito", idUsuario);
       }
 
       function removeUsuarioSelecionado(idUsuario) {
-        store.dispatch("removeFavorito", idUsuario);
+        store.dispatch("usuario/removeFavorito", idUsuario);
       }
 
       onMounted(() => {
-        store.dispatch("adicionaPessoas", "users?page=2");
+        store.dispatch("usuario/adicionaPessoas", "users?page=2");
       });
 
       return {

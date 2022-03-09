@@ -20,7 +20,9 @@
     name: "NavBar",
     setup() {
       const store = useStore();
-      const totalFavoritos = computed(() => store.getters.totalFavoritos);
+      const totalFavoritos = computed(
+        () => store.getters["usuario/totalFavoritos"]
+      );
 
       return {
         totalFavoritos,
